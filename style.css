@@ -1,0 +1,147 @@
+body {
+	background-color: #060606;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+::-webkit-scrollbar {
+	width: 40px;
+}
+::-webkit-scrollbar-track {
+	background: transparent;
+	border-radius: 100px;
+	margin-block: 250px;
+}
+::-webkit-scrollbar-thumb {
+	background-color: #6b6b6b;
+	border-radius: 100px;
+	border: 14px solid transparent;
+	background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+	background-color: #939393;
+}
+.nav {
+	-webkit-transform: translate(-50%, -50%);
+	backdrop-filter: blur(0.5vh);
+	background-color: rgba(255, 255, 255, 0.027);
+	border-radius: 0vh 0vh 2.5vh 2.5vh;
+	border-top: 0;
+	border: 0.2vh solid rgba(27, 27, 27, 0.5);
+	display: table-cell;
+	left: 50%;
+	padding-left: 1.5vh;
+	padding-right: 1.5vh;
+	padding: 1vh;
+	position: fixed;
+	top: 3.5%;
+	transform: translate(-50%, -50%);
+	vertical-align: middle;
+	width: 80%;
+}
+.nav h2 {
+	align-items: center;
+	color: white;
+	display: flex;
+	float: left;
+	font-family: 'Poppins', sans-serif;
+	font-size: 1.5vh;
+	margin-left: 1vh;
+	margin-left: 3vh;
+	padding-right: 3ex;
+	text-shadow: 0vh 0vh 1.5vh;
+}
+.nav h2:hover {
+	color: yellow;
+	text-shadow: 0vh 0vh 1.01vh rgb(149, 110, 255);
+	transition: text-shadow 2s, color 2s;
+}
+.nav a:link {
+	background-color: transparent;
+	text-decoration: none;
+}
+.nav a:visited {
+	color: white;
+}
+.navbtn {
+	backdrop-filter: blur(0.5vh);
+	background: linear-gradient(92.88deg, rgba(69, 94, 181, 1) 9.16%, rgba(86, 67, 204, 1) 43.89%, rgba(103, 63, 215, 1) 64.72%);
+	border-radius: 25ex;
+	border: 0.2vh solid rgba(27, 27, 27, 1);
+	float: right;
+	margin-bottom: 0.6vh;
+	margin-right: 1vh;
+	position: relative;
+	text-align: right;
+	width: 5vh;
+	width: fit-content;
+}
+.navbtn h1 {
+	color: white;
+	font-family: 'Poppins', sans-serif;
+	font-size: 1.2vh;
+	padding-bottom: 0.4ex;
+	padding-left: 2ex;
+	padding-right: 2ex;
+	padding-top: 0.4ex;
+	text-align: center;
+	text-shadow: 0vh 0vh 1.5vh;
+}
+.navbtn h1:hover {
+	box-shadow: 0vh 0vh 5vh rgba(255, 255, 255, 0.2);
+	transition: box-shadow 0.4s;
+}
+#contact {
+	margin-right: 5vh;
+}
+#alpha {
+	margin-left: 2vh;
+}
+#wrapper {
+	display: flex;
+	justify-content: center;
+}
+.neon {
+	box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #6513fe, 0 0 0.8rem #6513fe, 0 0 2.8rem #6513fe, inset 0 0 1.3rem #6513fe;
+}
+.ibox {
+	align-items: center;
+	border-radius: 2rem;
+	border: 0.2rem solid #fff;
+	display: flex;
+	height: 81vh;
+	justify-content: center;
+	margin-top: 10vh;
+	width: 80%;
+	background-color: rgba(255, 255, 255, 0.01);
+}
+h3 {
+	animation: flicker 1.5s infinite alternate;
+	color: white;
+	font-family: 'Sacramento', sans-serif;
+	font-size: 9.9vh;
+	font-weight: 400;
+	text-align: center;
+}
+@keyframes flicker {
+	0%,
+	18%,
+	22%,
+	25%,
+	53%,
+	57%,
+	100% {
+		text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #673fd7, 0 0 80px #673fd7, 0 0 90px #673fd7, 0 0 100px #673fd7, 0 0 150px #673fd7;
+	}
+	20%,
+	24%,
+	55% {
+		text-shadow: none;
+	}
+}
+hr {
+	margin-top: 3.8%;
+	width: 8%;
+	text-align: center;
+	border: none;
+	border-top: 1vh dotted rgba(54, 54, 54, 0.5);
+}
