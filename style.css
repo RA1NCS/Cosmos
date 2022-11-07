@@ -44,7 +44,7 @@ body {
 	display: flex;
 	float: left;
 	font-family: 'Poppins', sans-serif;
-	font-weight: 200;
+	font-weight: 600;
 	font-size: 1.5vh;
 	margin-left: 1vh;
 	margin-left: 3vh;
@@ -79,7 +79,7 @@ body {
 .navbtn h1 {
 	color: white;
 	font-family: 'Poppins', sans-serif;
-	font-weight: 200;
+	font-weight: 600;
 	font-size: 1.2vh;
 	padding-bottom: 0.4ex;
 	padding-left: 2ex;
