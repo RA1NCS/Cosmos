@@ -7,7 +7,7 @@ body {
 	width: 40px;
 }
 ::-webkit-scrollbar-track {
-	background: transparent;
+	background: 0 0;
 	border-radius: 100px;
 	margin-block: 250px;
 }
@@ -24,7 +24,7 @@ body {
 	-webkit-transform: translate(-50%, -50%);
 	backdrop-filter: blur(0.5vh);
 	background-color: rgba(255, 255, 255, 0.027);
-	border-radius: 0vh 0vh 2.5vh 2.5vh;
+	border-radius: 0 0 2.5vh 2.5vh;
 	border-top: 0;
 	border: 0.2vh solid rgba(27, 27, 27, 0.5);
 	display: table-cell;
@@ -41,20 +41,20 @@ body {
 }
 .nav h2 {
 	align-items: center;
-	color: white;
+	color: #fff;
 	display: flex;
 	float: left;
-	font-family: 'Poppins', sans-serif;
+	font-family: Poppins, sans-serif;
 	font-weight: 200;
 	font-size: 1.5vh;
 	margin-left: 1vh;
 	margin-left: 3vh;
 	padding-right: 3ex;
-	text-shadow: 0vh 0vh 1.5vh;
+	text-shadow: 0 0 1.5vh;
 }
 .nav h2:hover {
-	color: yellow;
-	text-shadow: 0vh 0vh 1.01vh rgb(149, 110, 255);
+	color: #ff0;
+	text-shadow: 0 0 1.01vh #956eff;
 	transition: text-shadow 2s, color 2s;
 }
 .nav a:link {
@@ -62,7 +62,7 @@ body {
 	text-decoration: none;
 }
 .nav a:visited {
-	color: white;
+	color: #fff;
 }
 .navbtn {
 	backdrop-filter: blur(0.5vh);
@@ -78,8 +78,8 @@ body {
 	width: fit-content;
 }
 .navbtn h1 {
-	color: white;
-	font-family: 'Poppins', sans-serif;
+	color: #fff;
+	font-family: Poppins, sans-serif;
 	font-weight: 200;
 	font-size: 1.2vh;
 	padding-bottom: 0.4ex;
@@ -87,10 +87,10 @@ body {
 	padding-right: 2ex;
 	padding-top: 0.4ex;
 	text-align: center;
-	text-shadow: 0vh 0vh 1.5vh;
+	text-shadow: 0 0 1.5vh;
 }
 .navbtn h1:hover {
-	box-shadow: 0vh 0vh 5vh rgba(255, 255, 255, 0.2);
+	box-shadow: 0 0 5vh rgba(255, 255, 255, 0.2);
 	transition: box-shadow 0.4s;
 }
 #contact {
@@ -121,34 +121,34 @@ body {
 }
 h3 {
 	animation: flicker 1.5s infinite alternate, goUp 2s;
-	color: white;
-	font-family: 'Sacramento', sans-serif;
+	color: #fff;
+	font-family: Sacramento, sans-serif;
 	font-size: 9.9vh;
 	font-weight: 400;
 	text-align: center;
 	animation-fill-mode: forwards;
 }
 h4 {
-	color: white;
-	font-family: 'Cookie', sans-serif;
-	font-size: 0vh;
+	color: #fff;
+	font-family: Cookie, sans-serif;
+	font-size: 0;
 	font-weight: 400;
 	text-align: center;
 	animation: increaseFont 1.5s;
 	animation-delay: 0.5s;
 	animation-fill-mode: forwards;
-	text-shadow: 0 0 1vh white;
+	text-shadow: 0 0 1vh #fff;
 	animation-timing-function: ease;
 	letter-spacing: 1px;
 }
 @keyframes flicker {
 	0%,
+	100%,
 	18%,
 	22%,
 	25%,
 	53%,
-	57%,
-	100% {
+	57% {
 		text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #673fd7, 0 0 80px #673fd7, 0 0 90px #673fd7, 0 0 100px #673fd7, 0 0 150px #673fd7;
 	}
 	20%,
@@ -189,7 +189,7 @@ h4 {
 }
 @keyframes increaseFont {
 	0% {
-		font-size: 0vh;
+		font-size: 0;
 		opacity: 0;
 	}
 	100% {
