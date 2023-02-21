@@ -39,34 +39,34 @@ string PED_ZONES             = 'Display premium, discount, and equilibrium zones
 //-----------------------------------------------------------------------------{
 //General
 //----------------------------------------{
-mode = input.string('Historical'
-  , options = ['Historical', 'Present']
-  , group = 'Smart Money Concepts'
+mode = input.string('Historical'            //creating an option in tooltip menu called Mode with options Historical and Present
+  , options = ['Historical', 'Present']     //with Historical being default and the group being Smart Money Concepts
+  , group = 'Smart Money Concepts'        
   , tooltip = MODE_TOOLTIP)
 
-style = input.string('Colored'
-  , options = ['Colored', 'Monochrome']
+style = input.string('Colored'             //creating an option in tooltip menu called Style with options Colored and Monochrome
+  , options = ['Colored', 'Monochrome']    //with Colored being default and the group being Smart Money Concepts
   , group = 'Smart Money Concepts'
   , tooltip = STYLE_TOOLTIP)
 
-show_trend = input(false, 'Color Candles'
+show_trend = input(false, 'Color Candles' //creating an option in tooltip menu called Color Candles that is a checkbox with it not being checked by default
   , group = 'Smart Money Concepts'
   , tooltip = COLOR_CANDLES_TOOLTIP)
 
 //----------------------------------------}
 //Internal Structure
 //----------------------------------------{
-show_internals = input(true, 'Show Internal Structure'
+show_internals = input(true, 'Show Internal Structure'  //another tooltip option but in a different group called Real Time Internal Structure
   , group = 'Real Time Internal Structure'
   , tooltip = SHOW_INTERNAL)
 
 show_ibull = input.string('All', 'Bullish Structure'
   , options = ['All', 'BOS', 'CHoCH']
-  , inline = 'ibull'
+  , inline = 'ibull'                                   //inline operator allows multiple inputs to be put in the same line
   , group = 'Real Time Internal Structure')
 
 swing_ibull_css = input(#089981, ''
-  , inline = 'ibull'
+  , inline = 'ibull'                                  //this is a color input that is the same line as the Bullish Structure input
   , group = 'Real Time Internal Structure')
 
 //Bear Structure
@@ -80,7 +80,7 @@ swing_ibear_css = input(#f23645, ''
   , group = 'Real Time Internal Structure')
 
 ifilter_confluence = input(false, 'Confluence Filter'
-  , group = 'Real Time Internal Structure'
+  , group = 'Real Time Internal Structure'           //an option called the Confluence Filter that is a checkbox not checked by default
   , tooltip = CONFLUENCE_FILTER)
 
 internal_structure_size = input.string('Tiny', 'Internal Label Size'
@@ -223,40 +223,40 @@ fvg_extend = input.int(1, "Extend FVG"
   , tooltip = EXTEND_FVG)
 
 //----------------------------------------}
-//Previous day/week high/low
+//Previous day/week high/low      // https://www.tradingview.com/script/07key9XM-Previous-Days-High-Low/
 //----------------------------------------{
 //Daily
-show_pdhl = input(false, 'Daily'
+show_pdhl = input(false, 'Daily'     // by default fallse. if false doesn't execute 
+  , inline = 'daily'        // inline and group are paremeters of input function. inline in seeting asks in same line and group in particular group
+  , group = 'Highs & Lows MTF')
+
+pdhl_style = input.string('⎯⎯⎯', ''  // asks user what style of line should be used to show
+  , options = ['⎯⎯⎯', '----', '····'] // creates a drop down menu for user to choose from three styles
   , inline = 'daily'
   , group = 'Highs & Lows MTF')
 
-pdhl_style = input.string('⎯⎯⎯', ''
-  , options = ['⎯⎯⎯', '----', '····']
-  , inline = 'daily'
-  , group = 'Highs & Lows MTF')
-
-pdhl_css = input(#2157f3, ''
+pdhl_css = input(#2157f3, '' 
   , inline = 'daily'
   , group = 'Highs & Lows MTF')
 
 //Weekly
-show_pwhl = input(false, 'Weekly'
+show_pwhl = input(false, 'Weekly' // same with all three functions until you turn it on, it will ot display anything
   , inline = 'weekly'
   , group = 'Highs & Lows MTF')
 
-pwhl_style = input.string('⎯⎯⎯', ''
+pwhl_style = input.string('⎯⎯⎯', '' // '' is empty string is title which can be set to display but not included here
   , options = ['⎯⎯⎯', '----', '····']
   , inline = 'weekly'
   , group = 'Highs & Lows MTF')
 
-pwhl_css = input(#2157f3, ''
+pwhl_css = input(#2157f3, '' 
   , inline = 'weekly'
   , group = 'Highs & Lows MTF')
 
 //Monthly
-show_pmhl = input(false, 'Monthly'
-  , inline = 'monthly'
-  , group = 'Highs & Lows MTF')
+show_pmhl = input(false, 'Monthly'           
+  , inline = 'monthly'                       
+  , group = 'Highs & Lows MTF')              
 
 pmhl_style = input.string('⎯⎯⎯', ''
   , options = ['⎯⎯⎯', '----', '····']
@@ -272,7 +272,7 @@ pmhl_css = input(#2157f3, ''
 //----------------------------------------{
 show_sd = input(false, 'Premium/Discount Zones'
   , group = 'Premium & Discount Zones'
-  , tooltip = PED_ZONES)
+  , tooltip = PED_ZONES)  //tooltip requi
 
 premium_css = input.color(#f23645, 'Premium Zone'
   , group = 'Premium & Discount Zones')
@@ -286,30 +286,37 @@ discount_css = input.color(#089981, 'Discount Zone'
 //-----------------------------------------------------------------------------}
 //Functions
 //-----------------------------------------------------------------------------{
-n = bar_index
+n = bar_index //returns number of bars in the given time frae ie 4h or 1d since birth of chart
 
-atr = ta.atr(200)
-cmean_range = ta.cum(high - low) / n
+atr = ta.atr(200) //finds 200 period average true range
+cmean_range = ta.cum(high - low) / n //finds culuminative mean range
 
 //HL Output function
-hl() => [high, low]
+hl() => [high, low] //current high and low prices of asset.
+//this is a one-line function as => is used and does not require return keyword
 
-//Get ohlc values function
+//Get ohlc values function   //for swing measurement
 get_ohlc()=> [close[1], open[1], high, low, high[2], low[2]]
+//open,high,low,close prices of current and two previous bars
 
 //Display Structure function
 display_Structure(x, y, txt, css, dashed, down, lbl_size)=>
-    structure_line = line.new(x, y, n, y
-      , color = css
-      , style = dashed ? line.style_dashed : line.style_solid)
+    structure_line = line.new(x, y, n, y //creates a new line
+      , color = css 
+      , style = dashed ? line.style_dashed : line.style_solid) 
 
     structure_lbl = label.new(int(math.avg(x, n)), y, txt
-      , color = TRANSP_CSS
+      , color = TRANSP_CSS 
       , textcolor = css
-      , style = down ? label.style_label_down : label.style_label_up
+      , style = down ? label.style_label_down : label.style_label_up // location where you want the label to be
       , size = lbl_size)
 
-    if mode == 'Present'
+    if mode == 'Present' //it is a parameter that allows our code to operate in 2 different modes:
+    // historial and present. When mode is 'Historical', function draws structure line and labe chart 
+    //does not delete them.
+    //whereas present mode deletes the data after specified number of bars has passed.
+    //for structure levels that are still forming and might change in future.
+    //therefore it is after new values come to change it constantly
         line.delete(structure_line[1])
         label.delete(structure_lbl[1])
 
@@ -317,15 +324,16 @@ display_Structure(x, y, txt, css, dashed, down, lbl_size)=>
 swings(len)=>
     var os = 0
     
-    upper = ta.highest(len)
+    upper = ta.highest(len) //finds highet and lowest part in given length
     lower = ta.lowest(len)
 
-    os := high[len] > upper ? 0 : low[len] < lower ? 1 : os[1]
+    os := high[len] > upper ? 0 : low[len] < lower ? 1 : os[1] //checks if current bar's price is high or low
+    // price is below or above the the swing high or low.
 
-    top = os == 0 and os[1] != 0 ? high[len] : 0
-    btm = os == 1 and os[1] != 1 ? low[len] : 0
+    top = os == 0 and os[1] != 0 ? high[len] : 0 //calculates swing top
+    btm = os == 1 and os[1] != 1 ? low[len] : 0 //calculates swing btm
 
-    [top, btm]
+    [top, btm] //returns top and bottom of swing
 
 //Order block coordinates function
 ob_coord(use_max, loc, target_top, target_btm, target_left, target_type)=>
@@ -364,8 +372,6 @@ display_ob(boxes, target_top, target_btm, target_left, target_type, show_last, s
         box.set_extend(get_box, extend.right)   // set the extension of the box towards the right direction
 
         color css = na    // initialize the color css variable with na value
-        
-
         
         if swing 
             if style == 'Monochrome'
